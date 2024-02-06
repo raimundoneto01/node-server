@@ -14,13 +14,13 @@ fastify.get('/', (req, res) => {
 
 fastify.get('/produtos', ProdutoService.buscarProdutos)
 
-fastify.get("/produtos/${id}", ProdutoService.buscarProdutosId)
+fastify.get("/produtos/:id", ProdutoService.buscarProdutosId)
 
-fastify.post("/produtos", ProdutoService.enviarProduto)
+fastify.post("/produto", ProdutoService.criarProdutos)
 
-fastify.patch("/produtos/${id}", ProdutoService.criarProdutos)
+fastify.patch("/produtos/:id", ProdutoService.editarProdutos)
 
-fastify.delete("/produtos/${id}", ProdutoService.deletarProdutos)
+fastify.delete("/produtos/:id", ProdutoService.deletarProdutos)
 
 
 

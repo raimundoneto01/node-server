@@ -1,13 +1,18 @@
+import { produtos } from "../db/produtos.js"
+
 export const ProdutoService = {
 
     buscarProdutos: (req, res) => {
-        const text = 'Todos os produtos'
-        res.send(`GET - Resende1!/${text}`)
+        
+        return produtos
     }
     ,
     buscarProdutosId: (req, res) => {
-        const Text = 'Produto específico por Id'
-        res.send("GET - Resende2!")
+       
+        let idReq = req.params.id
+
+        return produtos.find( p => p.id === parseInt(idReq))
+        
     }
     ,
     enviarProduto: (req, res) => {
@@ -16,15 +21,19 @@ export const ProdutoService = {
     }
     ,
     criarProdutos: (req, res) => {
-        const text = 'Criar produto por id'
-        res.send('GET - Resende4!')
+        let produtoReq = req.body
+        return produtos.push(produtoReq)
     }
     ,
+    editarProdutos: (req, res) => {
+        const text = 'Deletar um produto por id'
+        res.send('GET - Resende5!')
+    },
+
     deletarProdutos: (req, res) => {
         const text = 'Deletar um produto por id'
         res.send('GET - Resende5!')
     }
-
 
 
 }
